@@ -1,13 +1,16 @@
 package com.example.payment.domain.factory;
 
+import com.example.payment.domain.PaymentMethod;
 import com.example.payment.domain.strategy.PaymentStrategy;
 import com.example.payment.exception.PaymentNotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Component
+@Slf4j
 public class PaymentStrategyFactory {
     private final Map<String, PaymentStrategy> strategies = new HashMap<>();
 
