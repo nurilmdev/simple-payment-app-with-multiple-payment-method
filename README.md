@@ -20,6 +20,8 @@ This project demonstrates a scalable payment architecture with idempotency, glob
 - Global Exception Handling
 - Database Migration with Flyway
 - Unique Constraint Protection
+- JWT using Spring Security
+- OpenApi Doc Swagger for documentation
 - Clean Architecture Structure
 
 
