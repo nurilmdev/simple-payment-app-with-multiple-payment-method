@@ -17,6 +17,7 @@ public class BankTransferStrategy implements PaymentStrategy{
     @Override
     public void pay(Payment payment) {
         log.info("generate VA number for Bank Transfer");
+        payment.setMethod(getType().name());
         payment.setStatus(PaymentStatus.PENDING);
     }
 }

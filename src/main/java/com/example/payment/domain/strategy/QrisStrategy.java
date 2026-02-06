@@ -18,5 +18,6 @@ public class QrisStrategy implements PaymentStrategy{
     public void pay(Payment payment) {
         log.info("Generate QR Code");
         payment.setStatus(PaymentStatus.PENDING);
+        payment.setMethod(getType().name());
     }
 }
