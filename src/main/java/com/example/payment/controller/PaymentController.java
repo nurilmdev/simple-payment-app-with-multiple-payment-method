@@ -6,6 +6,7 @@ import com.example.payment.dto.Response;
 import com.example.payment.entity.Payment;
 import com.example.payment.service.PaymentService;
 import com.example.payment.util.DtoMapper;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class PaymentController {
     }
 
     @PostMapping
-    public ResponseEntity<Response<PaymentResponse>> create(@RequestBody PaymentRequest payment) {
+    public ResponseEntity<Response<PaymentResponse>> create(@Valid @RequestBody PaymentRequest payment) {
         return ResponseEntity.ok(
                 new Response<>("Berhasil Membuat Transaksi",
                         service.create(payment))

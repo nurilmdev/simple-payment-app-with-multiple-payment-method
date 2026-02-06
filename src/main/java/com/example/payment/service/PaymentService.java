@@ -26,7 +26,7 @@ public class PaymentService {
 
     public PaymentResponse create(PaymentRequest request) {
         PaymentStrategy strategy = paymentStrategyFactory.getStrategy(PaymentMethod.valueOf(request.getMethod()));
-        log.info("Payment method: {}", strategy.getType());
+        log.debug("Payment method: {}", strategy.getType());
         Payment payment = new Payment();
         payment.setReferenceNumber(request.getReferenceNumber());
         payment.setAmount(request.getAmount());

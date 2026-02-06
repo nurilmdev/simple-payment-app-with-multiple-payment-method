@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 @Slf4j
@@ -22,18 +25,18 @@ public class GlobalExceptionHandler {
             MethodArgumentNotValidException ex,
             HttpServletRequest request) {
         log.error(ex.getMessage());
-        String message = ex.getBindingResult()
+        List<String> errors = new ArrayList<>();
+        errors = ex.getBindingResult()
                 .getFieldErrors()
                 .stream()
                 .map(e -> e.getField() + " " + e.getDefaultMessage())
-                .findFirst()
-                .orElse("Validation error");
+                .collect(Collectors.toList());
 
         return ErrorResponse.builder()
                 .timestamp(LocalDateTime.now())
                 .status(400)
                 .error("Bad Request")
-                .message(message)
+                .message(errors.stream().collect(Collectors.joining(", ")))
                 .path(request.getRequestURI())
                 .build();
 
