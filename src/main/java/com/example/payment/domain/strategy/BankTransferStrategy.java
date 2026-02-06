@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class BankTransferStrategy implements PaymentStrategy{
     @Override
-    public String getType() {
-        return PaymentMethod.BANK_TRANSFER.name();
+    public PaymentMethod getType() {
+        return PaymentMethod.BANK_TRANSFER;
     }
 
     @Override

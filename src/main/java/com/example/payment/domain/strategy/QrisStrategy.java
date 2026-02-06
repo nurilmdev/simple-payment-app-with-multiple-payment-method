@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class QrisStrategy implements PaymentStrategy{
     @Override
-    public String getType() {
-        return PaymentMethod.QRIS.name();
+    public PaymentMethod getType() {
+        return PaymentMethod.QRIS;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.payment.service;
 
+import com.example.payment.domain.PaymentMethod;
 import com.example.payment.domain.factory.PaymentStrategyFactory;
 import com.example.payment.domain.strategy.PaymentStrategy;
 import com.example.payment.entity.Payment;
@@ -21,7 +22,7 @@ public class PaymentService {
     }
 
     public Payment create(Payment payment) {
-        PaymentStrategy strategy = paymentStrategyFactory.getStrategy(payment.getMethod());
+        PaymentStrategy strategy = paymentStrategyFactory.getStrategy(PaymentMethod.valueOf(payment.getMethod()));
         log.info("Payment method: {}", strategy.getType());
         strategy.pay(payment);
         payment.setCreatedAt(LocalDateTime.now());
