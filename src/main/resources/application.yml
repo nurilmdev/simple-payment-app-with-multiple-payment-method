@@ -12,3 +12,8 @@ spring:
     show-sql: true
   flyway:
     enabled: true
+
+#TRACE, DEBUG, INFO, WARN, and ERROR
+logging:
+  level:
+    root: DEBUG
