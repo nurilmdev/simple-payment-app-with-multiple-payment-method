@@ -12,3 +12,14 @@ spring:
     show-sql: true
   flyway:
     enabled: true
+
+jwt:
+  secret: my-super-secret-key-which-should-be-long
+  expiration: 86400000 # 1 day ms
+
+
+#TRACE, DEBUG, INFO, WARN, and ERROR
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
