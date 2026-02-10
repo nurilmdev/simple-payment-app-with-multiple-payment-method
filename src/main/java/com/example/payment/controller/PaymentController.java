@@ -22,7 +22,7 @@ public class PaymentController {
         this.service = service;
     }
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Response<PaymentResponse>> create(@Valid @RequestBody PaymentRequest payment) {
         return ResponseEntity.ok(
                 new Response<>("Berhasil Membuat Transaksi",
